@@ -13,20 +13,24 @@ public class SliderBehavior : MonoBehaviour, IDragHandler, IEndDragHandler
     Vector3 initialClick;
 
     public GameObject handle;
+    public GameObject dial;
 
-    float differenceX;
+    float deadzone;
     float differenceY;
+    float deadzoneInitialPress;
 
     private readonly float rotationLimit = 22.5f;
-    int value = 9;
+    int value = 0;
+
 
     bool dragged = false;
+    Vector2 initialPress;
 
     // Start is called before the first frame update
     void Start()
     {
         fillImage = GetComponent<Image>();
-        handle.transform.localEulerAngles = new Vector3(0, 202.5f, 0);
+        handle.transform.localEulerAngles = new Vector3(0, 0, 0);
     }
 
     // Update is called once per frame
@@ -48,42 +52,59 @@ public class SliderBehavior : MonoBehaviour, IDragHandler, IEndDragHandler
 
     public void OnDrag(PointerEventData eventData)
     {
-        Vector2 initialPress = eventData.pressPosition;
-
-
-
-        //differenceX = initialPress.x - eventData.position.x;
-        //differenceY = initialPress.y - eventData.position.y;
+        initialPress = eventData.pressPosition;
 
         if (eventData.position.x < initialPress.x && dragged == false) // move left
         {
-            if(value > 0)
+            Debug.Log("reached deadzone");
+            Debug.Log("Deadzone: " + deadzone + "Deadzone distance: " + deadzoneInitialPress);
+            if (value > 0)
             {
-                handle.transform.localEulerAngles = new Vector3(0, value * rotationLimit, 0);
                 value--;
+                transform.parent.gameObject.GetComponent<DialBehaviour>().RotateHandle(value);
+                handle.transform.localEulerAngles = new Vector3(0, value * rotationLimit, 0);
+
                 dragged = true;
+                StartCoroutine(numberDecreaseCooldown(0.1f));
             }
         }
 
         if (eventData.position.x > initialPress.x && dragged == false) // move right
         {
-            if (value < 9)
+            if (value < 9 && value > 0)
             {
-                handle.transform.localEulerAngles = new Vector3(0, value * rotationLimit, 0);
                 value++;
+                transform.parent.gameObject.GetComponent<DialBehaviour>().RotateHandle(value);
+                handle.transform.localEulerAngles = new Vector3(0, value * rotationLimit, 0);
                 dragged = true;
+                StartCoroutine(numberDecreaseCooldown(0.1f));
+            }
+
+            if(value == 0)
+            {
+                value++;
+                transform.parent.gameObject.GetComponent<DialBehaviour>().RotateHandle(value);
+                handle.transform.localEulerAngles = new Vector3(0, 22.5f, 0);
+                dragged = true;
+                Debug.Log(value);
+                StartCoroutine(numberDecreaseCooldown(0.1f));
             }
         }
+
     }
 
     public void OnEndDrag(PointerEventData eventData)
     {
         dragged = false;
+
+
+        
     }
 
     public void PointerClick()
     {
-       initialClick = Input.mousePosition;
+       initialPress =  Input.mousePosition;
+       deadzoneInitialPress = initialClick.x;
     }
 
     public void PointerRelease()
@@ -101,5 +122,11 @@ public class SliderBehavior : MonoBehaviour, IDragHandler, IEndDragHandler
     public void PointerExit()
     {
         pointerOverlap = false;
+    }
+
+    IEnumerator numberDecreaseCooldown(float cooldown)
+    {
+        yield return new WaitForSeconds(cooldown);
+        dragged = false;
     }
 }

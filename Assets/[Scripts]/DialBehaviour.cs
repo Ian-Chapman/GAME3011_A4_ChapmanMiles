@@ -20,18 +20,10 @@ public class DialBehaviour : MonoBehaviour
     }
 
     Vector3 mousePressPoint;
-    public void RotateHandle()
+    public void RotateHandle(float value)
     {
-        handle.transform.localEulerAngles = new Vector3(0, knobSlider.value * rotationLimit, 0);
-
-        gameManager.changeNumber(knobSlider.value, gameObject.tag.Length);
-
-
-        // gameManager.changeNumber()
-        //handle.transform.localEulerAngles = new Vector3(0, (mousePos.x * rotationLimit), 0);
-
-        //Mathf.Clamp(handle.transform.localEulerAngles.y, 0, 202.5f);
-
+        Debug.Log("rotatehandlefunccalled");
+        gameManager.changeNumber(value, gameObject.tag.Length);
     }
 
     void Update()

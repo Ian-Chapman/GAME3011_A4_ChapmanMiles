@@ -16,8 +16,6 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         outputLabel = GameObject.Find("OutputText").GetComponent<TextMeshProUGUI>();
-
-
     }
 
     // Update is called once per frame
@@ -28,6 +26,7 @@ public class GameManager : MonoBehaviour
 
     public void changeNumber(float num, int digitToChange)
     {
+        Debug.Log("changeNumberFuncCalled");
         switch (digitToChange)
         {
             case 1: // 10,000

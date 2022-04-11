@@ -226,6 +226,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   handle: {fileID: 1400169657236342240}
+  dial: {fileID: 1400169657801077129}
 --- !u!114 &1643461656
 MonoBehaviour:
   m_ObjectHideFlags: 0
