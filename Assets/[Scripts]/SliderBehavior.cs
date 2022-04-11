@@ -22,6 +22,7 @@ public class SliderBehavior : MonoBehaviour, IDragHandler, IEndDragHandler
     private readonly float rotationLimit = 22.5f;
     int value = 0;
 
+    AudioSource click;
 
     bool dragged = false;
     Vector2 initialPress;
@@ -31,6 +32,8 @@ public class SliderBehavior : MonoBehaviour, IDragHandler, IEndDragHandler
     {
         fillImage = GetComponent<Image>();
         handle.transform.localEulerAngles = new Vector3(0, 0, 0);
+
+        click = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -63,7 +66,8 @@ public class SliderBehavior : MonoBehaviour, IDragHandler, IEndDragHandler
                 value--;
                 transform.parent.gameObject.GetComponent<DialBehaviour>().RotateHandle(value);
                 handle.transform.localEulerAngles = new Vector3(0, value * rotationLimit, 0);
-
+                click.pitch -= 0.05f;
+                click.Play();
                 dragged = true;
                 StartCoroutine(numberDecreaseCooldown(0.1f));
             }
@@ -76,6 +80,8 @@ public class SliderBehavior : MonoBehaviour, IDragHandler, IEndDragHandler
                 value++;
                 transform.parent.gameObject.GetComponent<DialBehaviour>().RotateHandle(value);
                 handle.transform.localEulerAngles = new Vector3(0, value * rotationLimit, 0);
+                click.pitch += 0.05f;
+                click.Play();
                 dragged = true;
                 StartCoroutine(numberDecreaseCooldown(0.1f));
             }
@@ -85,6 +91,8 @@ public class SliderBehavior : MonoBehaviour, IDragHandler, IEndDragHandler
                 value++;
                 transform.parent.gameObject.GetComponent<DialBehaviour>().RotateHandle(value);
                 handle.transform.localEulerAngles = new Vector3(0, 22.5f, 0);
+                click.pitch += 0.05f;
+                click.Play();
                 dragged = true;
                 Debug.Log(value);
                 StartCoroutine(numberDecreaseCooldown(0.1f));
