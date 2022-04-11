@@ -11,11 +11,27 @@ public class GameManager : MonoBehaviour
     string thousandSlot = "#";
     string tenThousandSlot = "#";
 
+    public int winNumber;
+    string winNumberCheck;
+
+    Light OutputRed;
+    Light OutputGreen;
+
+    AudioSource correct;
+
+    bool numbersWon = false;
+
     TextMeshProUGUI outputLabel;
     // Start is called before the first frame update
     void Start()
     {
         outputLabel = GameObject.Find("OutputText").GetComponent<TextMeshProUGUI>();
+        winNumber = Random.Range(10000, 99999);
+
+        OutputRed = GameObject.Find("OutputRedCyl").GetComponentInChildren<Light>();
+        OutputGreen = GameObject.Find("OutputGreenCyl").GetComponentInChildren<Light>();
+
+        correct = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -47,5 +63,38 @@ public class GameManager : MonoBehaviour
         }
 
         outputLabel.text = tenThousandSlot + thousandSlot + hundredSlot + tenSlot + oneSlot;
+
+        winNumberCheck = outputLabel.text;
+
+        checkForWinNumbers();
+    }
+
+    void checkForWinNumbers()
+    {
+        if (!winNumberCheck.Contains("#"))
+        {
+            if (winNumber == int.Parse(winNumberCheck))
+            {
+                Debug.Log("yahoo");
+                OutputGreen.enabled = true;
+                OutputRed.enabled = false;
+                numbersWon = true;
+                correct.Play();
+            }
+
+            else
+            {
+                OutputGreen.enabled = false;
+                OutputRed.enabled = true;
+                numbersWon = false;
+            }
+        }
+        else
+        {
+            numbersWon = false;
+            OutputRed.enabled = true;
+        }
+
+
     }
 }
