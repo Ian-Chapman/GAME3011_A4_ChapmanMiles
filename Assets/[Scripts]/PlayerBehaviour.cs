@@ -30,6 +30,7 @@ public class PlayerBehaviour : MonoBehaviour
 
     private void Update()
     {
+        audioSource.Play();
         isGrounded = Physics.CheckSphere(groundCheck.position, groundRadius, groundMask);
 
         if (isGrounded && velocity.y < 0.0f)
@@ -53,6 +54,14 @@ public class PlayerBehaviour : MonoBehaviour
         //apply gravity
         velocity.y += gravity * Time.deltaTime;
         controller.Move(velocity * Time.deltaTime);
+
+        if ((Input.GetKeyDown("w")) || (Input.GetKeyDown("a")) || (Input.GetKeyDown("s")) || (Input.GetKeyDown("d")))
+        {
+            audioSource.Play();
+        }
+        else
+            audioSource.Stop();
+
     }
 
 }

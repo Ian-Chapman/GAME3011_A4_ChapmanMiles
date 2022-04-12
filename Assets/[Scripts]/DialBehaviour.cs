@@ -25,39 +25,4 @@ public class DialBehaviour : MonoBehaviour
         Debug.Log("rotatehandlefunccalled");
         gameManager.changeNumber(value, gameObject.tag.Length);
     }
-
-    void Update()
-    {
-        //mousePos = Input.mousePosition;
-        //Debug.Log(handle.transform.localEulerAngles);
-        //if(handle.transform.localEulerAngles.y >= 0 && handle.transform.localEulerAngles.y <= 202.5)
-        //{
-
-        //}
-
-        //if (Input.GetMouseButtonDown(0))
-        //{
-        //    mousePressPoint = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        //}
-
-        //if (Input.GetMouseButton(0))
-        //{
-        //    RotateHandle();
-        //}
-
-       
-       
-
-
-    }
-
-    //void OnMouseDrag()
-    //{
-    //    RotateHandle();
-    //}
-
-    //private void OnMouseDown()
-    //{
-    //    Debug.Log("yes");
-    //}
 }

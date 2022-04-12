@@ -36,23 +36,6 @@ public class SliderBehavior : MonoBehaviour, IDragHandler, IEndDragHandler
         click = GetComponent<AudioSource>();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        if (pointerOverlap)
-        {
-            ////Debug.Log("pointer here");
-            //mousePosition = Input.mousePosition;
-
-            //float fillAmount = Vector3.Angle(mousePosition, new Vector3(fillImage.sprite.bounds.size.x / 2, fillImage.sprite.bounds.size.y / 2, fillImage.sprite.bounds.size.z / 2));
-
-            //fillImage.fillAmount = fillAmount / 20;
-
-            //Debug.Log(fillAmount);
-
-        }
-    }
-
     public void OnDrag(PointerEventData eventData)
     {
         initialPress = eventData.pressPosition;
@@ -103,10 +86,7 @@ public class SliderBehavior : MonoBehaviour, IDragHandler, IEndDragHandler
 
     public void OnEndDrag(PointerEventData eventData)
     {
-        dragged = false;
-
-
-        
+        dragged = false; 
     }
 
     public void PointerClick()

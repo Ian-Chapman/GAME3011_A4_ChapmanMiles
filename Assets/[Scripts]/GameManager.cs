@@ -117,14 +117,10 @@ public class GameManager : MonoBehaviour
             numbersWon = false;
             OutputRed.enabled = true;
         }
-
-
     }
 
     public void NumberDisplayOnStart()
     {
-        
-
         for (int i = 0; i < winNumber.ToString().Length; i++)
         {
             displayTenThousandNum   = winNumber.ToString()[0];
