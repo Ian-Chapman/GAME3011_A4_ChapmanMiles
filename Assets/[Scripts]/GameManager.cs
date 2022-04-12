@@ -14,6 +14,18 @@ public class GameManager : MonoBehaviour
     public int winNumber;
     string winNumberCheck;
 
+    char displayTenThousandNum = '#';
+    char displayOneThousandNum = '#';
+    char displayOneHundredNum = '#';
+    char displayTenNum = '#';
+    char displayOneNum = '#';
+
+    public TextMeshPro tenThousandNum;
+    public TextMeshPro oneThousandNum;
+    public TextMeshPro oneHundredNum;
+    public TextMeshPro tenNum;
+    public TextMeshPro oneNum;
+
     Light OutputRed;
     Light OutputGreen;
 
@@ -22,6 +34,7 @@ public class GameManager : MonoBehaviour
     bool numbersWon = false;
 
     TextMeshProUGUI outputLabel;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -32,6 +45,15 @@ public class GameManager : MonoBehaviour
         OutputGreen = GameObject.Find("OutputGreenCyl").GetComponentInChildren<Light>();
 
         correct = GetComponent<AudioSource>();
+
+        NumberDisplayOnStart();
+
+        tenThousandNum.text = displayTenThousandNum.ToString();
+        oneThousandNum.text = displayOneThousandNum.ToString();
+        oneHundredNum.text = displayOneHundredNum.ToString();
+        tenNum.text = displayTenNum.ToString();
+        oneNum.text = displayOneNum.ToString();
+
     }
 
     // Update is called once per frame
@@ -61,6 +83,7 @@ public class GameManager : MonoBehaviour
                 tenThousandSlot = num.ToString();
                 break;
         }
+        
 
         outputLabel.text = tenThousandSlot + thousandSlot + hundredSlot + tenSlot + oneSlot;
 
@@ -96,5 +119,19 @@ public class GameManager : MonoBehaviour
         }
 
 
+    }
+
+    public void NumberDisplayOnStart()
+    {
+        
+
+        for (int i = 0; i < winNumber.ToString().Length; i++)
+        {
+            displayTenThousandNum   = winNumber.ToString()[0];
+            displayOneThousandNum   = winNumber.ToString()[1];
+            displayOneHundredNum    = winNumber.ToString()[2];
+            displayTenNum           = winNumber.ToString()[3];
+            displayOneNum           = winNumber.ToString()[4];
+        }
     }
 }

@@ -9,11 +9,12 @@ TagManager:
   - 100
   - 10
   - 1
+  - Terminal
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Ground
   - Water
   - UI
   - 
