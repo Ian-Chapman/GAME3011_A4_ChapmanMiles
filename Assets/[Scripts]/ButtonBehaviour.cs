@@ -8,12 +8,15 @@ public class ButtonBehaviour : MonoBehaviour
     public AudioSource audioSource;
     public Light buttonLight;
 
+    GameManager gameManager;
+
     bool isLightOn = false;
 
     public void Start()
     {
         isLightOn = false;
         buttonLight.enabled = false;
+        gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
     }
 
     public void OnButtonPressed()
@@ -30,5 +33,11 @@ public class ButtonBehaviour : MonoBehaviour
             buttonLight.enabled = false;
             audioSource.Play();
         }
+
+        gameManager.TopButtonRowWon();
+        gameManager.OtherTopButtons();
+        gameManager.BottomButtonRowWon();
+        gameManager.OtherBottomButtons();
+
     }
 }

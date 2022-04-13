@@ -239,7 +239,7 @@ GameObject:
   - component: {fileID: 13819348}
   m_Layer: 5
   m_Name: RightUIButton (5)
-  m_TagString: Untagged
+  m_TagString: UpDown
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -607,7 +607,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timerText: {fileID: 0}
-  timeLeft: 500
 --- !u!114 &86102965
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3277,7 +3276,7 @@ GameObject:
   - component: {fileID: 390828923}
   m_Layer: 5
   m_Name: LeftUIButton (1)
-  m_TagString: Untagged
+  m_TagString: UpDown
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3684,7 +3683,7 @@ GameObject:
   - component: {fileID: 433284878}
   m_Layer: 5
   m_Name: RightUIButton (1)
-  m_TagString: Untagged
+  m_TagString: UpDown
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4487,7 +4486,7 @@ GameObject:
   - component: {fileID: 589860523}
   m_Layer: 5
   m_Name: RightUIButton (2)
-  m_TagString: Untagged
+  m_TagString: UpDown
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4662,6 +4661,16 @@ MonoBehaviour:
   oneHundredNum: {fileID: 811792533}
   tenNum: {fileID: 697622561}
   oneNum: {fileID: 1000193441}
+  gameDifficulty: 2
+  harderDifficultyButtons:
+  - {fileID: 937553190}
+  - {fileID: 1593331480}
+  - {fileID: 766021033}
+  - {fileID: 227629260}
+  - {fileID: 1221104906}
+  - {fileID: 3293807}
+  - {fileID: 113620914}
+  - {fileID: 876476579}
 --- !u!4 &593057702
 Transform:
   m_ObjectHideFlags: 0
@@ -5166,7 +5175,7 @@ GameObject:
   - component: {fileID: 675254417}
   m_Layer: 5
   m_Name: LeftUIButton (2)
-  m_TagString: Untagged
+  m_TagString: UpDown
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6758,7 +6767,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: -741.00006, y: 351}
+  m_AnchoredPosition: {x: -741.0001, y: 423}
   m_SizeDelta: {x: 260.51636, y: 84.2536}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &817115250
@@ -10181,7 +10190,7 @@ GameObject:
   - component: {fileID: 1458547525}
   m_Layer: 5
   m_Name: LeftUIButton (4)
-  m_TagString: Untagged
+  m_TagString: UpDown
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -10416,7 +10425,7 @@ GameObject:
   - component: {fileID: 1484614837}
   m_Layer: 5
   m_Name: RightUIButton (4)
-  m_TagString: Untagged
+  m_TagString: UpDown
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -11214,7 +11223,7 @@ GameObject:
   - component: {fileID: 1697611757}
   m_Layer: 5
   m_Name: LeftUIButton (3)
-  m_TagString: Untagged
+  m_TagString: UpDown
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -11346,7 +11355,7 @@ GameObject:
   - component: {fileID: 1720035438}
   m_Layer: 5
   m_Name: RightUIButton (3)
-  m_TagString: Untagged
+  m_TagString: UpDown
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -12472,7 +12481,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timerText: {fileID: 1049678480}
-  timeLeft: 500
 --- !u!114 &1869215525
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13067,7 +13075,7 @@ GameObject:
   - component: {fileID: 1969646062}
   m_Layer: 5
   m_Name: LeftUIButton (5)
-  m_TagString: Untagged
+  m_TagString: UpDown
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

@@ -11,6 +11,8 @@ TagManager:
   - 1
   - Terminal
   - ButtonLight1
+  - UpDown
+  - LeftRight
   layers:
   - Default
   - TransparentFX

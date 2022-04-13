@@ -38,12 +38,22 @@ public class GameManager : MonoBehaviour
 
 
     AudioSource correct;
+    bool canPlay = true;
+    bool canPlayBottom = true;
 
     bool numbersWon = false;
     bool topSwitchWon = false;
     bool bottomSwitchWon = false;
 
     TextMeshProUGUI outputLabel;
+
+    public Difficulty gameDifficulty;
+
+    public GameObject[] harderDifficultyButtons;
+
+    TimerComponent timerComponent;
+
+    bool gameWon = false;
 
     // Start is called before the first frame update
     void Start()
@@ -59,6 +69,8 @@ public class GameManager : MonoBehaviour
         OutputBottomButtonRed = GameObject.Find("LeftArrowRedCyl").GetComponentInChildren<Light>();
         OutputBottomButtonGreen = GameObject.Find("LeftArrowGreenCyl").GetComponentInChildren<Light>();
 
+        timerComponent = GameObject.Find("Terminal").GetComponent<TimerComponent>();
+
         correct = GetComponent<AudioSource>();
 
         NumberDisplayOnStart();
@@ -73,16 +85,37 @@ public class GameManager : MonoBehaviour
         {
             light.enabled = false;
         }
-
+        StartGame();
     }
+
+    void StartGame()
+    {
+        switch (gameDifficulty)
+        {
+            case Difficulty.EASY:
+                for (int i = 0; i < harderDifficultyButtons.Length; i++)
+                {
+                    harderDifficultyButtons[i].SetActive(false);
+                    
+                }
+
+                timerComponent.setTimeLimit(120);
+
+                break;
+            case Difficulty.MEDIUM:
+                timerComponent.setTimeLimit(100);
+                break;
+            case Difficulty.HARD:
+                timerComponent.setTimeLimit(180);
+                break;
+        }
+    }
+
 
     // Update is called once per frame
     void Update()
     {
-        TopButtonRowWon();
-        BottomButtonRowWon();
-        OtherTopButtons();
-        OtherBottomButtons();
+
     }
 
     public void changeNumber(float num, int digitToChange)
@@ -125,6 +158,8 @@ public class GameManager : MonoBehaviour
                 OutputDialGreen.enabled = true;
                 OutputDialRed.enabled = false;
                 numbersWon = true;
+
+                
                 correct.Play();
             }
 
@@ -166,7 +201,15 @@ public class GameManager : MonoBehaviour
             OutputTopButtonRed.enabled = false;
             OutputTopButtonGreen.enabled = true;
             topSwitchWon = true;
-            //correct.Play();
+
+
+
+            if (canPlay)
+            {
+                correct.Play();
+                canPlay = false;
+            }
+            
             Debug.Log("Top button row won");
         }
         else
@@ -187,7 +230,12 @@ public class GameManager : MonoBehaviour
             OutputBottomButtonRed.enabled = false;
             OutputBottomButtonGreen.enabled = true;
             bottomSwitchWon = true;
-            //correct.Play();
+
+            if (canPlayBottom)
+            {
+                correct.Play();
+                canPlayBottom = false;
+            }
             Debug.Log("Bottom button row won");
         }
         else
@@ -227,4 +275,10 @@ public class GameManager : MonoBehaviour
         }
     }
 
+}
+public enum Difficulty
+{
+    EASY,
+    MEDIUM,
+    HARD
 }
