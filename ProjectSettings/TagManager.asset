@@ -10,6 +10,7 @@ TagManager:
   - 10
   - 1
   - Terminal
+  - ButtonLight1
   layers:
   - Default
   - TransparentFX

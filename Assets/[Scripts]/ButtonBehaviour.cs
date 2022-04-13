@@ -6,14 +6,14 @@ using UnityEngine.UI;
 public class ButtonBehaviour : MonoBehaviour
 {
     public AudioSource audioSource;
-    public GameObject buttonLight;
+    public Light buttonLight;
 
     bool isLightOn = false;
 
     public void Start()
     {
         isLightOn = false;
-        buttonLight.SetActive(false);
+        buttonLight.enabled = false;
     }
 
     public void OnButtonPressed()
@@ -21,13 +21,13 @@ public class ButtonBehaviour : MonoBehaviour
         if (!isLightOn)
         {
             isLightOn = true;
-            buttonLight.SetActive(true);
+            buttonLight.enabled = true;
             audioSource.Play();
         }
         else if (isLightOn)
         {
             isLightOn = false;
-            buttonLight.SetActive(false);
+            buttonLight.enabled = false;
             audioSource.Play();
         }
     }

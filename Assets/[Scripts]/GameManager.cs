@@ -5,6 +5,8 @@ using TMPro;
 
 public class GameManager : MonoBehaviour
 {
+    public Light[] buttonLights;
+
     string oneSlot = "#";
     string tenSlot = "#";
     string hundredSlot = "#";
@@ -26,12 +28,20 @@ public class GameManager : MonoBehaviour
     public TextMeshPro tenNum;
     public TextMeshPro oneNum;
 
-    Light OutputRed;
-    Light OutputGreen;
+    Light OutputDialRed;
+    Light OutputDialGreen;
+
+    Light OutputTopButtonRed;
+    Light OutputTopButtonGreen;
+    Light OutputBottomButtonRed;
+    Light OutputBottomButtonGreen;
+
 
     AudioSource correct;
 
     bool numbersWon = false;
+    bool topSwitchWon = false;
+    bool bottomSwitchWon = false;
 
     TextMeshProUGUI outputLabel;
 
@@ -41,8 +51,13 @@ public class GameManager : MonoBehaviour
         outputLabel = GameObject.Find("OutputText").GetComponent<TextMeshProUGUI>();
         winNumber = Random.Range(10000, 99999);
 
-        OutputRed = GameObject.Find("OutputRedCyl").GetComponentInChildren<Light>();
-        OutputGreen = GameObject.Find("OutputGreenCyl").GetComponentInChildren<Light>();
+        OutputDialRed = GameObject.Find("OutputRedCyl").GetComponentInChildren<Light>();
+        OutputDialGreen = GameObject.Find("OutputGreenCyl").GetComponentInChildren<Light>();
+
+        OutputTopButtonRed = GameObject.Find("UpArrowRedCyl").GetComponentInChildren<Light>();
+        OutputTopButtonGreen = GameObject.Find("UpArrowGreenCyl").GetComponentInChildren<Light>();
+        OutputBottomButtonRed = GameObject.Find("LeftArrowRedCyl").GetComponentInChildren<Light>();
+        OutputBottomButtonGreen = GameObject.Find("LeftArrowGreenCyl").GetComponentInChildren<Light>();
 
         correct = GetComponent<AudioSource>();
 
@@ -53,12 +68,21 @@ public class GameManager : MonoBehaviour
         oneHundredNum.text = displayOneHundredNum.ToString();
         tenNum.text = displayTenNum.ToString();
         oneNum.text = displayOneNum.ToString();
+
+        foreach (Light light in buttonLights)
+        {
+            light.enabled = false;
+        }
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        TopButtonRowWon();
+        BottomButtonRowWon();
+        OtherTopButtons();
+        OtherBottomButtons();
     }
 
     public void changeNumber(float num, int digitToChange)
@@ -98,23 +122,23 @@ public class GameManager : MonoBehaviour
             if (winNumber == int.Parse(winNumberCheck))
             {
                 Debug.Log("yahoo");
-                OutputGreen.enabled = true;
-                OutputRed.enabled = false;
+                OutputDialGreen.enabled = true;
+                OutputDialRed.enabled = false;
                 numbersWon = true;
                 correct.Play();
             }
 
             else
             {
-                OutputGreen.enabled = false;
-                OutputRed.enabled = true;
+                OutputDialGreen.enabled = false;
+                OutputDialRed.enabled = true;
                 numbersWon = false;
             }
         }
         else
         {
             numbersWon = false;
-            OutputRed.enabled = true;
+            OutputDialRed.enabled = true;
         }
     }
 
@@ -129,4 +153,78 @@ public class GameManager : MonoBehaviour
             displayOneNum           = winNumber.ToString()[4];
         }
     }
+
+
+    public void TopButtonRowWon()
+    {
+        if ((buttonLights[0].enabled == true) &&
+            (buttonLights[1].enabled == true) &&
+            (buttonLights[7].enabled == true) &&
+            (buttonLights[8].enabled == true) &&
+            (buttonLights[4].enabled == true))
+        {
+            OutputTopButtonRed.enabled = false;
+            OutputTopButtonGreen.enabled = true;
+            topSwitchWon = true;
+            //correct.Play();
+            Debug.Log("Top button row won");
+        }
+        else
+        {
+            OutputTopButtonRed.enabled = true;
+            OutputTopButtonGreen.enabled = false;
+        }
+    }
+
+    public void BottomButtonRowWon()
+    {
+        if ((buttonLights[15].enabled == true) &&
+            (buttonLights[11].enabled == true) &&
+            (buttonLights[17].enabled == true) &&
+            (buttonLights[18].enabled == true) &&
+            (buttonLights[14].enabled == true))
+        {
+            OutputBottomButtonRed.enabled = false;
+            OutputBottomButtonGreen.enabled = true;
+            bottomSwitchWon = true;
+            //correct.Play();
+            Debug.Log("Bottom button row won");
+        }
+        else
+        {
+            OutputBottomButtonRed.enabled = true;
+            OutputBottomButtonGreen.enabled = false;
+        }
+    }
+
+    public void OtherTopButtons()
+    {
+        if ((buttonLights[5].enabled == true) ||
+            (buttonLights[6].enabled == true) ||
+            (buttonLights[2].enabled == true) ||
+            (buttonLights[3].enabled == true) ||
+            (buttonLights[9].enabled == true)) 
+        {
+            topSwitchWon = false;
+            OutputTopButtonRed.enabled = true;
+            OutputTopButtonGreen.enabled = false;
+            Debug.Log("You have an incorrect button pressed...");
+        }
+    }
+
+    public void OtherBottomButtons()
+    {
+        if ((buttonLights[10].enabled == true) ||
+            (buttonLights[16].enabled == true) ||
+            (buttonLights[12].enabled == true) ||
+            (buttonLights[13].enabled == true) ||
+            (buttonLights[19].enabled == true))
+        {
+            bottomSwitchWon = false;
+            OutputBottomButtonRed.enabled = true;
+            OutputBottomButtonGreen.enabled = false;
+            Debug.Log("You have an incorrect button pressed...");
+        }
+    }
+
 }
