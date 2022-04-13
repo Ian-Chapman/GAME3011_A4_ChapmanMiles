@@ -1,41 +1,34 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ButtonBehaviour : MonoBehaviour
 {
-    public GameObject upButtonLight;
-    public GameObject downButtonLight;
+    public AudioSource audioSource;
+    public GameObject buttonLight;
 
-    bool upLightOn = false;
-    bool downLightOn = false;
+    bool isLightOn = false;
 
     public void Start()
     {
-        //upButtonLight.SetActive(false);
-        //downButtonLight.SetActive(false);
+        isLightOn = false;
+        buttonLight.SetActive(false);
     }
 
-    public void OnUpButtonPressed()
+    public void OnButtonPressed()
     {
-        //downLightOn = false;
-
-        //if (downLightOn == false)
-        //{
-            upButtonLight.SetActive(true);
-           // upLightOn = true;
-       // }
-    }
-
-    public void OnDownButtonPressed()
-    {
-        upLightOn = false;
-
-        if (upLightOn == false)
+        if (!isLightOn)
         {
-            downButtonLight.SetActive(true);
-            downLightOn = true;
+            isLightOn = true;
+            buttonLight.SetActive(true);
+            audioSource.Play();
         }
-        
+        else if (isLightOn)
+        {
+            isLightOn = false;
+            buttonLight.SetActive(false);
+            audioSource.Play();
+        }
     }
 }

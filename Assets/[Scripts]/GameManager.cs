@@ -53,7 +53,6 @@ public class GameManager : MonoBehaviour
         oneHundredNum.text = displayOneHundredNum.ToString();
         tenNum.text = displayTenNum.ToString();
         oneNum.text = displayOneNum.ToString();
-
     }
 
     // Update is called once per frame

@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &243555243951089869
+--- !u!1 &50478444898977071
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,22 +8,22 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 5494393456632459850}
-  - component: {fileID: 8603886635872915054}
+  - component: {fileID: 9183118346174658484}
+  - component: {fileID: 5808156164168514947}
   m_Layer: 5
-  m_Name: Point Light
+  m_Name: ButtonLight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!224 &5494393456632459850
+--- !u!224 &9183118346174658484
 RectTransform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 243555243951089869}
+  m_GameObject: {fileID: 50478444898977071}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1.1375, z: 1}
@@ -36,14 +36,14 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!108 &8603886635872915054
+--- !u!108 &5808156164168514947
 Light:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 243555243951089869}
-  m_Enabled: 0
+  m_GameObject: {fileID: 50478444898977071}
+  m_Enabled: 1
   serializedVersion: 10
   m_Type: 2
   m_Shape: 0
@@ -130,7 +130,7 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 75, y: 75, z: 1}
   m_Children:
-  - {fileID: 5494393456632459850}
+  - {fileID: 9183118346174658484}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 180}
@@ -309,5 +309,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a43a643612ae4e4da94fb79e9d6c400, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  upButtonLight: {fileID: 243555243951089869}
-  downButtonLight: {fileID: 243555243951089869}
+  audioSource: {fileID: 4029275552431291963}
+  buttonLight: {fileID: 50478444898977071}
