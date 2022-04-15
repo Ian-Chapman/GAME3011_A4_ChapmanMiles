@@ -36,6 +36,11 @@ public class GameManager : MonoBehaviour
     Light OutputBottomButtonRed;
     Light OutputBottomButtonGreen;
 
+    public GameObject mainWinPanel;
+    public GameObject mainLosePanel;
+    public GameObject playerWinPanel;
+    public GameObject playerLosePanel;
+
 
     AudioSource correct;
     bool canPlay = true;
@@ -53,17 +58,25 @@ public class GameManager : MonoBehaviour
 
     TimerComponent timerComponent;
 
-    bool gameWon = false;
+    public bool gameWon = false;
+    public static bool gameLose = false;
 
     // Start is called before the first frame update
     void Start()
     {
+        //make sure game isnt frozen if restarted
+        Time.timeScale = 1;
+
+        mainWinPanel.SetActive(false);
+        mainLosePanel.SetActive(false);
+        playerWinPanel.SetActive(false);
+        playerLosePanel.SetActive(false);
+
         outputLabel = GameObject.Find("OutputText").GetComponent<TextMeshProUGUI>();
         winNumber = Random.Range(10000, 99999);
 
         OutputDialRed = GameObject.Find("OutputRedCyl").GetComponentInChildren<Light>();
         OutputDialGreen = GameObject.Find("OutputGreenCyl").GetComponentInChildren<Light>();
-
         OutputTopButtonRed = GameObject.Find("UpArrowRedCyl").GetComponentInChildren<Light>();
         OutputTopButtonGreen = GameObject.Find("UpArrowGreenCyl").GetComponentInChildren<Light>();
         OutputBottomButtonRed = GameObject.Find("LeftArrowRedCyl").GetComponentInChildren<Light>();
@@ -275,6 +288,33 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    public void OnPlayerWin()
+    {
+        switch (gameDifficulty)
+        {
+            case Difficulty.EASY:
+
+
+                break;
+            case Difficulty.MEDIUM:
+
+                break;
+            case Difficulty.HARD:
+
+                break;
+        }
+    }
+
+    public void OnPlayerLose()
+    {
+        if (gameLose == true)
+        {
+            mainLosePanel.SetActive(true);
+            playerLosePanel.SetActive(true);
+            Time.timeScale = 0;
+        }
+    }
+    
 }
 public enum Difficulty
 {

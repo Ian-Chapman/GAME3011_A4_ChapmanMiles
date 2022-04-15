@@ -12,6 +12,10 @@ public class TimerComponent : MonoBehaviour
     float timeLeft = 0;
     bool difficultyChosen = false;
 
+    private void Start()
+    {
+        
+    }
 
     // Update is called once per frame
     void Update()
@@ -24,11 +28,10 @@ public class TimerComponent : MonoBehaviour
 
             if (timeLeft <= 0)
             {
-                //reset all switches or trigger a lose state
+                GameManager.gameLose = true;
                 Time.timeScale = 0;
             }
         }
-
     }
 
    public void setTimeLimit(float time)
