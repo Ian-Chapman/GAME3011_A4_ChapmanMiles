@@ -174,6 +174,7 @@ public class GameManager : MonoBehaviour
 
                 
                 correct.Play();
+                checkForWin();
             }
 
             else
@@ -224,6 +225,7 @@ public class GameManager : MonoBehaviour
             }
             
             Debug.Log("Top button row won");
+            checkForWin();
         }
         else
         {
@@ -250,6 +252,7 @@ public class GameManager : MonoBehaviour
                 canPlayBottom = false;
             }
             Debug.Log("Bottom button row won");
+            checkForWin();
         }
         else
         {
@@ -288,21 +291,45 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public void OnPlayerWin()
+    public void checkForWin()
     {
         switch (gameDifficulty)
         {
             case Difficulty.EASY:
 
+                if (numbersWon)
+                {
+                    OnPlayerWin();
+                }
 
                 break;
+
             case Difficulty.MEDIUM:
 
+                if(numbersWon && topSwitchWon && bottomSwitchWon)
+                {
+                    OnPlayerWin();
+                }
+
                 break;
+
             case Difficulty.HARD:
+
+                if (numbersWon && topSwitchWon && bottomSwitchWon)
+                {
+                    OnPlayerWin();
+                }
 
                 break;
         }
+    }
+
+    public void OnPlayerWin()
+    {
+        gameWon = true;
+        mainWinPanel.SetActive(true);
+        Time.timeScale = 0;
+
     }
 
     public void OnPlayerLose()
