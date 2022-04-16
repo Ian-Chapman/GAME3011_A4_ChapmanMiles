@@ -52,7 +52,7 @@ public class GameManager : MonoBehaviour
 
     TextMeshProUGUI outputLabel;
 
-    public Difficulty gameDifficulty;
+   Difficulty gameDifficulty = Difficulty.EASY;
 
     public GameObject[] harderDifficultyButtons;
 
@@ -98,10 +98,14 @@ public class GameManager : MonoBehaviour
         {
             light.enabled = false;
         }
-        StartGame();
+    }
+    
+    public void ChangeDifficutly(Difficulty difficultyValue)
+    {
+        gameDifficulty = difficultyValue;
     }
 
-    void StartGame()
+    public void StartGame()
     {
         switch (gameDifficulty)
         {
