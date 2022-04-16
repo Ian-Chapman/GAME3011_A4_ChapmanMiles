@@ -10,6 +10,7 @@ public class InstructionsBehaviour : MonoBehaviour
     GameManager gameManager;
     public Slider slider;
     public TextMeshProUGUI difficultyLabel;
+    public GameObject buttonSequence;
 
     private void Start()
     {
@@ -30,21 +31,25 @@ public class InstructionsBehaviour : MonoBehaviour
             case 0:
                 difficultyLabel.text = "EASY";
                 gameManager.ChangeDifficutly(Difficulty.EASY);
+                buttonSequence.GetComponent<ButtonSequenceDisplay>().changeDelay(0.6f);
                 break;
 
             case 1:
                 difficultyLabel.text = "MEDIUM";
                 gameManager.ChangeDifficutly(Difficulty.MEDIUM);
+                buttonSequence.GetComponent<ButtonSequenceDisplay>().changeDelay(0.6f);
                 break;
 
             case 2:
                 difficultyLabel.text = "HARD";
                 gameManager.ChangeDifficutly(Difficulty.HARD);
+                buttonSequence.GetComponent<ButtonSequenceDisplay>().changeDelay(0.3f);
                 break;
 
             default:
                 difficultyLabel.text = "EASY";
                 gameManager.ChangeDifficutly(Difficulty.EASY);
+                buttonSequence.GetComponent<ButtonSequenceDisplay>().changeDelay(0.6f);
                 break;
         }
     }

@@ -1900,6 +1900,7 @@ MonoBehaviour:
   seqSlot8: {fileID: 1413307656}
   seqSlot9: {fileID: 1012913587}
   seqSlot10: {fileID: 490982580}
+  delay: 0
 --- !u!114 &227629263
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5621,7 +5622,6 @@ MonoBehaviour:
   mainLosePanel: {fileID: 223367495}
   playerWinPanel: {fileID: 66087119}
   playerLosePanel: {fileID: 1048090159}
-  gameDifficulty: 2
   harderDifficultyButtons:
   - {fileID: 937553190}
   - {fileID: 1593331480}
@@ -13862,6 +13862,10 @@ PrefabInstance:
       propertyPath: slider
       value: 
       objectReference: {fileID: 265993809}
+    - target: {fileID: 497226442, guid: 18ba7e599f6e4d04797f05589a74b772, type: 3}
+      propertyPath: buttonSequence
+      value: 
+      objectReference: {fileID: 227629260}
     - target: {fileID: 497226442, guid: 18ba7e599f6e4d04797f05589a74b772, type: 3}
       propertyPath: difficultyLabel
       value: 

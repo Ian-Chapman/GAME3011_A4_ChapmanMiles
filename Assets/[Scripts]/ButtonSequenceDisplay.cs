@@ -18,6 +18,8 @@ public class ButtonSequenceDisplay : MonoBehaviour
     public GameObject seqSlot9;
     public GameObject seqSlot10;
 
+    public float delay;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -39,47 +41,52 @@ public class ButtonSequenceDisplay : MonoBehaviour
 
     }
 
+   public void changeDelay(float delayChange)
+    {
+        delay = delayChange;
+    }
+
 
     IEnumerator ButtonSequence()
     {
         seqSlot1.SetActive(true);
-        yield return new WaitForSeconds(.3f);
+        yield return new WaitForSeconds(delay);
         seqSlot1.SetActive(false);
 
         seqSlot2.SetActive(true);
-        yield return new WaitForSeconds(.3f);
+        yield return new WaitForSeconds(delay);
         seqSlot2.SetActive(false);
 
         seqSlot3.SetActive(true);
-        yield return new WaitForSeconds(.3f);
+        yield return new WaitForSeconds(delay);
         seqSlot3.SetActive(false);
 
         seqSlot4.SetActive(true);
-        yield return new WaitForSeconds(.3f);
+        yield return new WaitForSeconds(delay);
         seqSlot4.SetActive(false);
 
         seqSlot5.SetActive(true);
-        yield return new WaitForSeconds(.3f);
+        yield return new WaitForSeconds(delay);
         seqSlot5.SetActive(false);
 
         seqSlot6.SetActive(true);
-        yield return new WaitForSeconds(.3f);
+        yield return new WaitForSeconds(delay);
         seqSlot6.SetActive(false);
 
         seqSlot7.SetActive(true);
-        yield return new WaitForSeconds(.3f);
+        yield return new WaitForSeconds(delay);
         seqSlot7.SetActive(false);
 
         seqSlot8.SetActive(true);
-        yield return new WaitForSeconds(.3f);
+        yield return new WaitForSeconds(delay);
         seqSlot8.SetActive(false);
 
         seqSlot9.SetActive(true);
-        yield return new WaitForSeconds(.3f);
+        yield return new WaitForSeconds(delay);
         seqSlot9.SetActive(false);
 
         seqSlot10.SetActive(true);
-        yield return new WaitForSeconds(.3f);
+        yield return new WaitForSeconds(delay);
         seqSlot10.SetActive(false);
     }
 
