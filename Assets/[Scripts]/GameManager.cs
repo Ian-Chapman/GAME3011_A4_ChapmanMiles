@@ -43,6 +43,9 @@ public class GameManager : MonoBehaviour
 
 
     AudioSource correct;
+    AudioSource LevelMusic;
+    AudioSource explosionSound;
+
     bool canPlay = true;
     bool canPlayBottom = true;
 
@@ -59,7 +62,11 @@ public class GameManager : MonoBehaviour
     TimerComponent timerComponent;
 
     public bool gameWon = false;
-    public static bool gameLose = false;
+    public bool gameLose = false;
+
+    public Camera mainCamera;
+    public Camera playerCamera;
+    public Camera goCamera;
 
     // Start is called before the first frame update
     void Start()
@@ -85,6 +92,8 @@ public class GameManager : MonoBehaviour
         timerComponent = GameObject.Find("Terminal").GetComponent<TimerComponent>();
 
         correct = GetComponent<AudioSource>();
+        LevelMusic = GameObject.Find("LevelMusic").GetComponent<AudioSource>();
+        explosionSound = GameObject.Find("ExplosionSound").GetComponent<AudioSource>();
 
         NumberDisplayOnStart();
 
@@ -93,6 +102,10 @@ public class GameManager : MonoBehaviour
         oneHundredNum.text = displayOneHundredNum.ToString();
         tenNum.text = displayTenNum.ToString();
         oneNum.text = displayOneNum.ToString();
+
+        mainCamera = GameObject.Find("Main Camera").GetComponent<Camera>();
+        goCamera = GameObject.Find("GOCamera").GetComponent<Camera>();
+        playerCamera = GameObject.Find("Player").GetComponentInChildren<Camera>();
 
         foreach (Light light in buttonLights)
         {
@@ -340,12 +353,28 @@ public class GameManager : MonoBehaviour
     {
         if (gameLose == true)
         {
-            mainLosePanel.SetActive(true);
-            playerLosePanel.SetActive(true);
-            Time.timeScale = 0;
+            LevelMusic.Stop();
+            explosionSound.Play();
+            mainCamera.enabled = false;
+            playerCamera.enabled = false;
+            goCamera.enabled = true;
+
+            StartCoroutine(showGameOverPanels());
+
+
+
+            
         }
     }
-    
+
+    IEnumerator showGameOverPanels()
+    {
+        yield return new WaitForSeconds(2f);
+        mainLosePanel.SetActive(true);
+        playerLosePanel.SetActive(true);
+        Time.timeScale = 0;
+    }
+
 }
 public enum Difficulty
 {

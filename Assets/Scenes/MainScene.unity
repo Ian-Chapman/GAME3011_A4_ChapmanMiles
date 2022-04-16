@@ -97,7 +97,7 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
-  m_LightingDataAsset: {fileID: 0}
+  m_LightingDataAsset: {fileID: 112000000, guid: 98d4db8eb82110c49b7c7576f6143639, type: 2}
   m_LightingSettings: {fileID: 0}
 --- !u!196 &4
 NavMeshSettings:
@@ -846,6 +846,7 @@ GameObject:
   - component: {fileID: 108664805}
   - component: {fileID: 108664804}
   - component: {fileID: 108664803}
+  - component: {fileID: 108664806}
   m_Layer: 5
   m_Name: RetryButton
   m_TagString: Untagged
@@ -916,7 +917,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 108664804}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 108664806}
+        m_TargetAssemblyTypeName: WinLoseUIController, Assembly-CSharp
+        m_MethodName: OnReplayRetryButtonPressed
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &108664804
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -955,6 +968,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 108664801}
   m_CullTransparentMesh: 1
+--- !u!114 &108664806
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 108664801}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d3d7278088adc694cb298b6297384c45, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &113620914
 GameObject:
   m_ObjectHideFlags: 0
@@ -5632,6 +5657,10 @@ MonoBehaviour:
   - {fileID: 113620914}
   - {fileID: 876476579}
   gameWon: 0
+  gameLose: 0
+  mainCamera: {fileID: 0}
+  playerCamera: {fileID: 0}
+  goCamera: {fileID: 0}
 --- !u!4 &593057702
 Transform:
   m_ObjectHideFlags: 0
@@ -5872,6 +5901,7 @@ GameObject:
   - component: {fileID: 614475143}
   - component: {fileID: 614475142}
   - component: {fileID: 614475141}
+  - component: {fileID: 614475144}
   m_Layer: 5
   m_Name: OnLoseQuitButton
   m_TagString: Untagged
@@ -5942,7 +5972,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 614475142}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 614475144}
+        m_TargetAssemblyTypeName: WinLoseUIController, Assembly-CSharp
+        m_MethodName: OnQuitButtonPressed
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &614475142
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5981,6 +6023,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 614475139}
   m_CullTransparentMesh: 1
+--- !u!114 &614475144
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 614475139}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d3d7278088adc694cb298b6297384c45, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &622898669 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 9050070911822629493, guid: df3287192f0360542915014d5d7620f1, type: 3}
@@ -7941,6 +7995,7 @@ GameObject:
   - component: {fileID: 795873774}
   - component: {fileID: 795873773}
   - component: {fileID: 795873772}
+  - component: {fileID: 795873775}
   m_Layer: 5
   m_Name: ReplayButton
   m_TagString: Untagged
@@ -8011,7 +8066,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 795873773}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 795873775}
+        m_TargetAssemblyTypeName: WinLoseUIController, Assembly-CSharp
+        m_MethodName: OnReplayRetryButtonPressed
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &795873773
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8050,6 +8117,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 795873770}
   m_CullTransparentMesh: 1
+--- !u!114 &795873775
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 795873770}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d3d7278088adc694cb298b6297384c45, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &805618024 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 9050070911822629493, guid: df3287192f0360542915014d5d7620f1, type: 3}
@@ -8872,7 +8951,7 @@ AudioListener:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
-  m_Enabled: 1
+  m_Enabled: 0
 --- !u!20 &963194227
 Camera:
   m_ObjectHideFlags: 0
@@ -9431,6 +9510,7 @@ GameObject:
   - component: {fileID: 1004748869}
   - component: {fileID: 1004748868}
   - component: {fileID: 1004748867}
+  - component: {fileID: 1004748870}
   m_Layer: 5
   m_Name: RetryButton
   m_TagString: Untagged
@@ -9501,7 +9581,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1004748868}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1004748870}
+        m_TargetAssemblyTypeName: WinLoseUIController, Assembly-CSharp
+        m_MethodName: OnReplayRetryButtonPressed
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1004748868
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9540,6 +9632,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1004748865}
   m_CullTransparentMesh: 1
+--- !u!114 &1004748870
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1004748865}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d3d7278088adc694cb298b6297384c45, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1005764029
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9793,7 +9897,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.392}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -10729,6 +10833,89 @@ Light:
   m_CorrespondingSourceObject: {fileID: 5808156164168514947, guid: df3287192f0360542915014d5d7620f1, type: 3}
   m_PrefabInstance: {fileID: 242938313}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1187940117
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1187940120}
+  - component: {fileID: 1187940119}
+  - component: {fileID: 1187940118}
+  m_Layer: 0
+  m_Name: GOCamera
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!81 &1187940118
+AudioListener:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1187940117}
+  m_Enabled: 0
+--- !u!20 &1187940119
+Camera:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1187940117}
+  m_Enabled: 1
+  serializedVersion: 2
+  m_ClearFlags: 2
+  m_BackGroundColor: {r: 0, g: 0, b: 0, a: 0}
+  m_projectionMatrixMode: 1
+  m_GateFitMode: 2
+  m_FOVAxisMode: 0
+  m_SensorSize: {x: 36, y: 24}
+  m_LensShift: {x: 0, y: 0}
+  m_FocalLength: 50
+  m_NormalizedViewPortRect:
+    serializedVersion: 2
+    x: 0
+    y: 0
+    width: 1
+    height: 1
+  near clip plane: 0.3
+  far clip plane: 1000
+  field of view: 60
+  orthographic: 0
+  orthographic size: 5
+  m_Depth: 0
+  m_CullingMask:
+    serializedVersion: 2
+    m_Bits: 0
+  m_RenderingPath: -1
+  m_TargetTexture: {fileID: 0}
+  m_TargetDisplay: 0
+  m_TargetEye: 3
+  m_HDR: 1
+  m_AllowMSAA: 1
+  m_AllowDynamicResolution: 0
+  m_ForceIntoRT: 0
+  m_OcclusionCulling: 1
+  m_StereoConvergence: 10
+  m_StereoSeparation: 0.022
+--- !u!4 &1187940120
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1187940117}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 282.0764, y: 134.99583, z: -20.61976}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 15
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1198529417
 GameObject:
   m_ObjectHideFlags: 0
@@ -12963,6 +13150,7 @@ GameObject:
   - component: {fileID: 1524267468}
   - component: {fileID: 1524267467}
   - component: {fileID: 1524267466}
+  - component: {fileID: 1524267469}
   m_Layer: 5
   m_Name: OnWinQuitButton
   m_TagString: Untagged
@@ -13033,7 +13221,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1524267467}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1524267469}
+        m_TargetAssemblyTypeName: WinLoseUIController, Assembly-CSharp
+        m_MethodName: OnQuitButtonPressed
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1524267467
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13072,6 +13272,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1524267464}
   m_CullTransparentMesh: 1
+--- !u!114 &1524267469
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1524267464}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d3d7278088adc694cb298b6297384c45, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &1528825648 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 9050070911822629493, guid: df3287192f0360542915014d5d7620f1, type: 3}
@@ -13870,6 +14082,14 @@ PrefabInstance:
       propertyPath: difficultyLabel
       value: 
       objectReference: {fileID: 771408364}
+    - target: {fileID: 778824791381587702, guid: 18ba7e599f6e4d04797f05589a74b772, type: 3}
+      propertyPath: m_Name
+      value: DifficultyLabel
+      objectReference: {fileID: 0}
+    - target: {fileID: 2247212477894939010, guid: 18ba7e599f6e4d04797f05589a74b772, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 36.700012
+      objectReference: {fileID: 0}
     - target: {fileID: 4056566980862110106, guid: 18ba7e599f6e4d04797f05589a74b772, type: 3}
       propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.size
       value: 1
@@ -13898,6 +14118,14 @@ PrefabInstance:
       propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
+    - target: {fileID: 4652417627161559573, guid: 18ba7e599f6e4d04797f05589a74b772, type: 3}
+      propertyPath: m_Name
+      value: Difficulty
+      objectReference: {fileID: 0}
+    - target: {fileID: 5278888538625724081, guid: 18ba7e599f6e4d04797f05589a74b772, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 39
+      objectReference: {fileID: 0}
     - target: {fileID: 5370097626625547534, guid: 18ba7e599f6e4d04797f05589a74b772, type: 3}
       propertyPath: m_text
       value: EASY
@@ -13905,6 +14133,10 @@ PrefabInstance:
     - target: {fileID: 5532666178826467440, guid: 18ba7e599f6e4d04797f05589a74b772, type: 3}
       propertyPath: m_AnchoredPosition.x
       value: 348
+      objectReference: {fileID: 0}
+    - target: {fileID: 5532666178826467440, guid: 18ba7e599f6e4d04797f05589a74b772, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 39
       objectReference: {fileID: 0}
     - target: {fileID: 5556234503612565519, guid: 18ba7e599f6e4d04797f05589a74b772, type: 3}
       propertyPath: m_AnchorMax.y
@@ -13997,6 +14229,31 @@ PrefabInstance:
     - target: {fileID: 7472508240840699530, guid: 18ba7e599f6e4d04797f05589a74b772, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7472508240844165700, guid: 18ba7e599f6e4d04797f05589a74b772, type: 3}
+      propertyPath: m_text
+      value: 'System faliure detected. Self destruct sequence started. Use your environment
+        to decypher the terminal dial output. On medium or hard difficulty, use sequence
+        button to recall button combinations. You can move away from the terminal
+        if you need a refresher.
+
+
+        Button order displays in sequential order
+        according to button type.
+
+
+        Good luck happy death.
+
+
+        Move
+        - WASD
+
+        Camera - Mouse
+
+        Terminal Dials - LMB & drag
+
+        Terminal
+        Buttons - LMB click'
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 18ba7e599f6e4d04797f05589a74b772, type: 3}
@@ -15308,6 +15565,7 @@ GameObject:
   - component: {fileID: 1815765244}
   - component: {fileID: 1815765243}
   - component: {fileID: 1815765242}
+  - component: {fileID: 1815765245}
   m_Layer: 5
   m_Name: OnLoseQuitButton
   m_TagString: Untagged
@@ -15378,7 +15636,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1815765243}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1815765245}
+        m_TargetAssemblyTypeName: WinLoseUIController, Assembly-CSharp
+        m_MethodName: OnQuitButtonPressed
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1815765243
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15417,6 +15687,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1815765240}
   m_CullTransparentMesh: 1
+--- !u!114 &1815765245
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1815765240}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d3d7278088adc694cb298b6297384c45, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1821723888
 GameObject:
   m_ObjectHideFlags: 0
@@ -16787,6 +17069,133 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!1 &2057170584
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2057170586}
+  - component: {fileID: 2057170585}
+  m_Layer: 0
+  m_Name: ExplosionSound
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!82 &2057170585
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2057170584}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: c55f1d6a7953b2649bf2b4b3680aac4d, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+--- !u!4 &2057170586
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2057170584}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 282.0764, y: 134.99583, z: -20.61976}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 16
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!224 &2082968408 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 1178570832674101775, guid: df3287192f0360542915014d5d7620f1, type: 3}

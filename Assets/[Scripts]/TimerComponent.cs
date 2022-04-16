@@ -11,10 +11,11 @@ public class TimerComponent : MonoBehaviour
     //public float overWorldTimeLeft;
     float timeLeft = 0;
     bool difficultyChosen = false;
+    GameManager gameManager;
 
     private void Start()
     {
-        
+        gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
     }
 
     // Update is called once per frame
@@ -26,10 +27,12 @@ public class TimerComponent : MonoBehaviour
 
             timerText.text = timeLeft.ToString();
 
-            if (timeLeft <= 0)
+            if (timeLeft <= 0 && gameManager.gameLose == false)
             {
-                GameManager.gameLose = true;
-                Time.timeScale = 0;
+                gameManager.gameLose = true;
+                gameManager.OnPlayerLose();
+              
+                
             }
         }
     }

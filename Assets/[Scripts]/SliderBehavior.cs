@@ -19,6 +19,8 @@ public class SliderBehavior : MonoBehaviour, IDragHandler, IEndDragHandler
     float differenceY;
     float deadzoneInitialPress;
 
+    float deadzoneTime = 0.15f;
+
     private readonly float rotationLimit = 22.5f;
     int value = 0;
 
@@ -52,7 +54,7 @@ public class SliderBehavior : MonoBehaviour, IDragHandler, IEndDragHandler
                 click.pitch -= 0.05f;
                 click.Play();
                 dragged = true;
-                StartCoroutine(numberDecreaseCooldown(0.1f));
+                StartCoroutine(numberDecreaseCooldown(deadzoneTime));
             }
         }
 
@@ -66,7 +68,7 @@ public class SliderBehavior : MonoBehaviour, IDragHandler, IEndDragHandler
                 click.pitch += 0.05f;
                 click.Play();
                 dragged = true;
-                StartCoroutine(numberDecreaseCooldown(0.1f));
+                StartCoroutine(numberDecreaseCooldown(deadzoneTime));
             }
 
             if(value == 0)
@@ -78,7 +80,7 @@ public class SliderBehavior : MonoBehaviour, IDragHandler, IEndDragHandler
                 click.Play();
                 dragged = true;
                 Debug.Log(value);
-                StartCoroutine(numberDecreaseCooldown(0.1f));
+                StartCoroutine(numberDecreaseCooldown(deadzoneTime));
             }
         }
 
