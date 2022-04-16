@@ -68,6 +68,8 @@ public class GameManager : MonoBehaviour
     public Camera playerCamera;
     public Camera goCamera;
 
+    Animator loseAnimator;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -107,6 +109,10 @@ public class GameManager : MonoBehaviour
         goCamera = GameObject.Find("GOCamera").GetComponent<Camera>();
         playerCamera = GameObject.Find("Player").GetComponentInChildren<Camera>();
 
+
+
+        loseAnimator = GameObject.Find("Win/LoseCanvas(PlayerCamera)").GetComponentInChildren<Animator>();
+
         foreach (Light light in buttonLights)
         {
             light.enabled = false;
@@ -129,7 +135,7 @@ public class GameManager : MonoBehaviour
                     
                 }
 
-                timerComponent.setTimeLimit(120);
+                timerComponent.setTimeLimit(2);
 
                 break;
             case Difficulty.MEDIUM:
@@ -372,7 +378,7 @@ public class GameManager : MonoBehaviour
         yield return new WaitForSeconds(2f);
         mainLosePanel.SetActive(true);
         playerLosePanel.SetActive(true);
-        Time.timeScale = 0;
+        loseAnimator.SetBool("isGameOver", true);
     }
 
 }
