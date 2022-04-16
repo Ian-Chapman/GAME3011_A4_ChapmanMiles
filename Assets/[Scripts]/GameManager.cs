@@ -76,10 +76,7 @@ public class GameManager : MonoBehaviour
         //make sure game isnt frozen if restarted
         Time.timeScale = 1;
 
-        mainWinPanel.SetActive(false);
-        mainLosePanel.SetActive(false);
-        playerWinPanel.SetActive(false);
-        playerLosePanel.SetActive(false);
+
 
         outputLabel = GameObject.Find("OutputText").GetComponent<TextMeshProUGUI>();
         winNumber = Random.Range(10000, 99999);
@@ -109,9 +106,22 @@ public class GameManager : MonoBehaviour
         goCamera = GameObject.Find("GOCamera").GetComponent<Camera>();
         playerCamera = GameObject.Find("Player").GetComponentInChildren<Camera>();
 
+        loseAnimator = GameObject.Find("WinLosePC").GetComponent<Animator>();
+
+        playerWinPanel = GameObject.Find("PlayerWinPanel");
+        playerLosePanel = GameObject.Find("PlayerLosePanel");
+
+        mainWinPanel = GameObject.Find("MainWinPanel");
+        mainLosePanel = GameObject.Find("MainLosePanel");
+
+        playerWinPanel.SetActive(false);
+        playerLosePanel.SetActive(false);
+        mainWinPanel.SetActive(false);
+        mainLosePanel.SetActive(false);
 
 
-        loseAnimator = GameObject.Find("Win/LoseCanvas(PlayerCamera)").GetComponentInChildren<Animator>();
+
+       
 
         foreach (Light light in buttonLights)
         {
@@ -135,14 +145,14 @@ public class GameManager : MonoBehaviour
                     
                 }
 
-                timerComponent.setTimeLimit(2);
+                timerComponent.setTimeLimit(120);
 
                 break;
             case Difficulty.MEDIUM:
                 timerComponent.setTimeLimit(100);
                 break;
             case Difficulty.HARD:
-                timerComponent.setTimeLimit(180);
+                timerComponent.setTimeLimit(150);
                 break;
         }
     }
@@ -375,9 +385,9 @@ public class GameManager : MonoBehaviour
 
     IEnumerator showGameOverPanels()
     {
-        yield return new WaitForSeconds(2f);
         mainLosePanel.SetActive(true);
         playerLosePanel.SetActive(true);
+        yield return new WaitForSeconds(2f);
         loseAnimator.SetBool("isGameOver", true);
     }
 

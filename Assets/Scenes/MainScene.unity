@@ -379,7 +379,7 @@ GameObject:
   - component: {fileID: 66087122}
   - component: {fileID: 66087121}
   m_Layer: 5
-  m_Name: WinPanel
+  m_Name: PlayerWinPanel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1787,7 +1787,7 @@ GameObject:
   - component: {fileID: 223367498}
   - component: {fileID: 223367497}
   m_Layer: 5
-  m_Name: LosePanel
+  m_Name: MainLosePanel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5643,10 +5643,10 @@ MonoBehaviour:
   oneHundredNum: {fileID: 811792533}
   tenNum: {fileID: 697622561}
   oneNum: {fileID: 1000193441}
-  mainWinPanel: {fileID: 1159782936}
-  mainLosePanel: {fileID: 223367495}
-  playerWinPanel: {fileID: 66087119}
-  playerLosePanel: {fileID: 1048090159}
+  mainWinPanel: {fileID: 0}
+  mainLosePanel: {fileID: 0}
+  playerWinPanel: {fileID: 0}
+  playerLosePanel: {fileID: 0}
   harderDifficultyButtons:
   - {fileID: 937553190}
   - {fileID: 1593331480}
@@ -9856,7 +9856,7 @@ GameObject:
   - component: {fileID: 1048090162}
   - component: {fileID: 1048090161}
   m_Layer: 5
-  m_Name: LosePanel
+  m_Name: PlayerLosePanel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -10627,7 +10627,7 @@ GameObject:
   - component: {fileID: 1159782939}
   - component: {fileID: 1159782938}
   m_Layer: 5
-  m_Name: WinPanel
+  m_Name: MainWinPanel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -11027,7 +11027,7 @@ GameObject:
   - component: {fileID: 1220740162}
   - component: {fileID: 1220740161}
   m_Layer: 5
-  m_Name: Win/LoseCanvas(MainCamera)
+  m_Name: WinLoseMC
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -13039,8 +13039,9 @@ GameObject:
   - component: {fileID: 1505553005}
   - component: {fileID: 1505553004}
   - component: {fileID: 1505553003}
+  - component: {fileID: 1505553007}
   m_Layer: 5
-  m_Name: Win/LoseCanvas(PlayerCamera)
+  m_Name: WinLosePC
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -13128,6 +13129,25 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!95 &1505553007
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1505553002}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: b8f30df5303ce2b43b3d37e4dba827ea, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!108 &1519012329 stripped
 Light:
   m_CorrespondingSourceObject: {fileID: 5808156164168514947, guid: df3287192f0360542915014d5d7620f1, type: 3}
