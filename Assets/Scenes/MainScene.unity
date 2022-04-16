@@ -5616,7 +5616,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e549f4f3ed48d1a4f96f9a4b68622ff3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  animator: {fileID: 0}
   buttonLights:
   - {fileID: 495060971}
   - {fileID: 596428014}
@@ -11027,7 +11026,6 @@ GameObject:
   - component: {fileID: 1220740163}
   - component: {fileID: 1220740162}
   - component: {fileID: 1220740161}
-  - component: {fileID: 1220740165}
   m_Layer: 5
   m_Name: Win/LoseCanvas(MainCamera)
   m_TagString: Untagged
@@ -11117,25 +11115,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
---- !u!95 &1220740165
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1220740160}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: b8f30df5303ce2b43b3d37e4dba827ea, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1221104906
 GameObject:
   m_ObjectHideFlags: 0
@@ -13060,7 +13039,6 @@ GameObject:
   - component: {fileID: 1505553005}
   - component: {fileID: 1505553004}
   - component: {fileID: 1505553003}
-  - component: {fileID: 1505553007}
   m_Layer: 5
   m_Name: Win/LoseCanvas(PlayerCamera)
   m_TagString: Untagged
@@ -13150,25 +13128,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
---- !u!95 &1505553007
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1505553002}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: b8f30df5303ce2b43b3d37e4dba827ea, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!108 &1519012329 stripped
 Light:
   m_CorrespondingSourceObject: {fileID: 5808156164168514947, guid: df3287192f0360542915014d5d7620f1, type: 3}

@@ -5,8 +5,6 @@ using TMPro;
 
 public class GameManager : MonoBehaviour
 {
-    public Animator animator;
-
     public Light[] buttonLights;
 
     string oneSlot = "#";
@@ -47,8 +45,6 @@ public class GameManager : MonoBehaviour
     AudioSource correct;
     AudioSource LevelMusic;
     AudioSource explosionSound;
-    AudioSource deathVoice;
-
 
     bool canPlay = true;
     bool canPlayBottom = true;
@@ -98,7 +94,6 @@ public class GameManager : MonoBehaviour
         correct = GetComponent<AudioSource>();
         LevelMusic = GameObject.Find("LevelMusic").GetComponent<AudioSource>();
         explosionSound = GameObject.Find("ExplosionSound").GetComponent<AudioSource>();
-        deathVoice = GameObject.Find("DeathVoice").GetComponent<AudioSource>();
 
         NumberDisplayOnStart();
 
@@ -141,7 +136,7 @@ public class GameManager : MonoBehaviour
                 timerComponent.setTimeLimit(100);
                 break;
             case Difficulty.HARD:
-                timerComponent.setTimeLimit(150);
+                timerComponent.setTimeLimit(180);
                 break;
         }
     }
@@ -365,6 +360,10 @@ public class GameManager : MonoBehaviour
             goCamera.enabled = true;
 
             StartCoroutine(showGameOverPanels());
+
+
+
+            
         }
     }
 
@@ -373,9 +372,7 @@ public class GameManager : MonoBehaviour
         yield return new WaitForSeconds(2f);
         mainLosePanel.SetActive(true);
         playerLosePanel.SetActive(true);
-        animator.SetBool("isGameOver", true);
-        yield return new WaitForSeconds(3f);
-        deathVoice.Play();
+        Time.timeScale = 0;
     }
 
 }
