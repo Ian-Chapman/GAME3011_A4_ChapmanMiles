@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using TMPro;
+using System;
 
 public class TimerComponent : MonoBehaviour
 {
@@ -25,7 +26,7 @@ public class TimerComponent : MonoBehaviour
         {
             timeLeft -= Time.deltaTime;
 
-            timerText.text = timeLeft.ToString();
+            timerText.text = "" + Math.Round(timeLeft, 2);
 
             if (timeLeft <= 0 && gameManager.gameLose == false)
             {

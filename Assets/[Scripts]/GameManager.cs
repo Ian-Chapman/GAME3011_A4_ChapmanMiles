@@ -362,7 +362,6 @@ public class GameManager : MonoBehaviour
         gameWon = true;
         mainWinPanel.SetActive(true);
         Time.timeScale = 0;
-
     }
 
     public void OnPlayerLose()
